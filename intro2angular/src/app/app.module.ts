@@ -9,6 +9,7 @@ import { DataComponent } from './data/data.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard'
 
 @NgModule({
@@ -42,7 +43,7 @@ import { AuthGuard } from './auth.guard'
       }
     ])
   ],
-  providers: [RecordsService, AuthService, AuthGuard],
+  providers: [RecordsService, AuthService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
