@@ -7,6 +7,7 @@ import { RecordsService } from './records.service';
 import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
@@ -19,6 +20,7 @@ import { AuthGuard } from './auth.guard'
     DataComponent,
     LoginComponent,
     AdminComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,10 @@ import { AuthGuard } from './auth.guard'
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: 'admin',
