@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { AdminComponent } from './admin/admin.component';
       }
     ])
   ],
-  providers: [RecordsService],
+  providers: [RecordsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
