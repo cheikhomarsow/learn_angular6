@@ -6,12 +6,16 @@ import { HttpClientModule } from '@angular/common/http'
 import { RecordsService } from './records.service';
 import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DataComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +24,14 @@ import { DataComponent } from './data/data.component';
       {
         path: 'data', //localhost:4200/data
         component: DataComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
       },
       {
         path: '',
