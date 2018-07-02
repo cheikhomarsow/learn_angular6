@@ -10,7 +10,7 @@ interface myData{
 
 export class AuthService {
 
-  loggedInStatus = false 
+  private loggedInStatus = false
 
   constructor(private http: HttpClient) { }
 
