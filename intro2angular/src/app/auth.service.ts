@@ -6,6 +6,10 @@ interface myData{
   message: string
 }
 
+interface registerResponse {
+  success: boolean
+}
+
 @Injectable()
 
 export class AuthService {
@@ -29,4 +33,12 @@ export class AuthService {
       password
     })
   }
+
+  registerUser(username, password){
+    return this.http.post<registerResponse>('/api/register', {
+      username,
+      password
+    })
+  }
+
 }

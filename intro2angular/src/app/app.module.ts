@@ -11,7 +11,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
-import { AuthGuard } from './auth.guard'
+import { AuthGuard } from './auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AuthGuard } from './auth.guard'
     DataComponent,
     LoginComponent,
     AdminComponent,
-    LogoutComponent
+    LogoutComponent,
+    DashboardComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,14 @@ import { AuthGuard } from './auth.guard'
         path: 'admin',
         component: AdminComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
       {
         path: '',
