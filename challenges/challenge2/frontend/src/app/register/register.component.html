@@ -29,24 +29,25 @@
         <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" [class.is-invalid]="myForm.controls.passwords.controls.password.invalid && myForm.controls.passwords.controls.password.touched" formControlName="password" placeholder="********">
+            
             <div class="alert alert-danger" *ngIf="myForm.controls.passwords.controls.password.invalid && myForm.controls.passwords.controls.password.touched" role="alert">
-                This field is required
+                Veillez remplir ce champ
             </div>
-            <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.short && myForm.controls.passwords.controls.password.touched" role="alert">
-                Short !
-            </div>
-            <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.nocapital && myForm.controls.passwords.controls.password.touched" role="alert">
-                no-capital
-            </div>
-            <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.nodigit && myForm.controls.passwords.controls.password.touched" role="alert">
-                no-digit
+            <div class="alert alert-danger" 
+                *ngIf="(myForm.controls.passwords.errors?.short || myForm.controls.passwords.errors?.noCapital || myForm.controls.passwords.errors?.noDigit)
+                  && myForm.controls.passwords.controls.password.touched">
+                  
+                  <p *ngIf="myForm.controls.passwords.errors?.short">Le mot de passe doit contenir au moins 6 caractères</p>
+                  <p *ngIf="myForm.controls.passwords.errors?.noCapital">Le mot de passe doit contenir au moins au lettre majuscule</p>
+                  <p *ngIf="myForm.controls.passwords.errors?.noDigit">Le mot de passe doit contenir au moins un nombre</p>
+
             </div>
           </div>
           <div class="form-group">
             <label>Password Confirmation</label>
             <input type="password" class="form-control" [class.is-invalid]="myForm.controls.passwords.controls.cpassword.invalid && myForm.controls.passwords.controls.cpassword.touched" formControlName="cpassword" placeholder="********">
-            <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.invalid && myForm.controls.passwords.controls.cpassword.touched" role="alert">
-                Passwords not match
+            <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.mismatch && myForm.controls.passwords.controls.cpassword.touched" role="alert">
+                Les deux mot de passe ne sont pas identiques
             </div>
           </div>
     </div>

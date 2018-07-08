@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.passwordFormGroup = this.fb.group({
-      password: ['', Validators.required],
+      password: ['password', Validators.required],
       cpassword: ['', Validators.required] 
     }, {validator: this.passwordConfirming})
 
@@ -25,17 +25,14 @@ export class RegisterComponent implements OnInit {
       gender: ['default', Validators.compose([Validators.required, this.genderValidator])],
       passwords: this.passwordFormGroup
     })
-
-    console.log(this.myForm)
-
   }
+
 
   usernameValidator(control: AbstractControl): { invalid : boolean } | null {
     let username = control.value
     let regexp = RegExp('^[a-z0-9_-]{3,15}$')
 
     if(!regexp.test(username)){
-      console.log(control.invalid)
       return { invalid : true }
     }
   }
@@ -59,30 +56,35 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  passwordConfirming(control: AbstractControl):  { [key: string]: boolean } | null {
+  
+  passwordConfirming(control: AbstractControl):  Object | null {
     
     let password = control.get('password').value
     let cpassword = control.get('cpassword').value
 
+    let passwordErrors = [] 
+
     if(password.length < 6) {
-      return { 'short': true };
+      passwordErrors['short'] = true
     }
 
     // does it contain at least one capital letter
      if ( !( (/[A-Z]/g).test(password) ) ) {
-      return { 'nocapital': true };
+      passwordErrors['noCapital'] = true
     }
 
     // does it contain at least one number
      if( ( !(/[0-9]/g).test(password) ) ) {
-      return { 'nodigit': true };
+      passwordErrors['noDigit'] = true
     }
     
     
     if (password !== cpassword && cpassword.length > 0) {
-      return { 'invalid' : true };
+      passwordErrors['mismatch'] = true
     }
-  
+
+    return passwordErrors
+
   }
 
 }
