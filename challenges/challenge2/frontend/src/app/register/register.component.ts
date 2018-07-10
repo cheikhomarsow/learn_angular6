@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.passwordFormGroup = this.fb.group({
-      password: ['password', Validators.required],
+      password: ['', Validators.required],
       cpassword: ['', Validators.required] 
     }, {validator: this.passwordConfirming})
 
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     let username = control.value
     let regexp = RegExp('^[a-z0-9_-]{3,15}$')
 
-    if(!regexp.test(username)){
+    if(!regexp.test(username.toLowerCase())){
       return { invalid : true }
     }
   }

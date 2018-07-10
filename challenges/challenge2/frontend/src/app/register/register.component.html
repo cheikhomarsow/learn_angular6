@@ -1,33 +1,33 @@
 <div class="container">
   <form [formGroup]="myForm">
     <div class="form-group">
-      <label>Username</label>
+      <label><strong>Username</strong></label>
       <input type="text" class="form-control" [class.is-invalid]="myForm.controls.username.invalid && myForm.controls.username.touched" formControlName="username" placeholder="cosinus">
       <div class="alert alert-danger" *ngIf="myForm.controls.username.invalid && myForm.controls.username.touched" role="alert">
-          This field is required
+          Le champ username est obligatoire et doit contenir au moins 3 caractères
       </div>
     </div>
     <div class="form-group">
-      <label>Email address</label>
+        <label><strong>Email</strong></label>
       <input type="email" class="form-control" [class.is-invalid]="myForm.controls.email.errors?.invalid && myForm.controls.email.touched" formControlName="email" placeholder="name@example.com">
       <div class="alert alert-danger" *ngIf="myForm.controls.email.errors?.invalid && myForm.controls.email.touched" role="alert">
-          Email not valid
+          L'adresse email n'est pas valide
       </div>
     </div>
     <div class="form-group">
-      <label>Gender</label>
+      <label><strong>Sexe</strong></label>
       <select class="form-control" [class.is-invalid]="myForm.controls.gender.errors?.invalid && myForm.controls.gender.touched" formControlName="gender">
-        <option value="default">Choose a gender</option>
+        <option value="default">Choisir un genre</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
       <div class="alert alert-danger" *ngIf="myForm.controls.gender.errors?.invalid && myForm.controls.gender.touched" role="alert">
-          This field is required
+        choisissez un genre
       </div>
     </div>
     <div class="form-group" formGroupName="passwords" >
         <div class="form-group">
-            <label>Password</label>
+            <label><strong>Mot de passe</strong></label>
             <input type="password" class="form-control" [class.is-invalid]="myForm.controls.passwords.controls.password.invalid && myForm.controls.passwords.controls.password.touched" formControlName="password" placeholder="********">
             
             <div class="alert alert-danger" *ngIf="myForm.controls.passwords.controls.password.invalid && myForm.controls.passwords.controls.password.touched" role="alert">
@@ -36,7 +36,7 @@
             <div class="alert alert-danger" 
                 *ngIf="(myForm.controls.passwords.errors?.short || myForm.controls.passwords.errors?.noCapital || myForm.controls.passwords.errors?.noDigit)
                   && myForm.controls.passwords.controls.password.touched">
-                  
+
                   <p *ngIf="myForm.controls.passwords.errors?.short">Le mot de passe doit contenir au moins 6 caractères</p>
                   <p *ngIf="myForm.controls.passwords.errors?.noCapital">Le mot de passe doit contenir au moins au lettre majuscule</p>
                   <p *ngIf="myForm.controls.passwords.errors?.noDigit">Le mot de passe doit contenir au moins un nombre</p>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Password Confirmation</label>
+            <label><strong>Répéter le mot de passe</strong></label>
             <input type="password" class="form-control" [class.is-invalid]="myForm.controls.passwords.controls.cpassword.invalid && myForm.controls.passwords.controls.cpassword.touched" formControlName="cpassword" placeholder="********">
             <div class="alert alert-danger" *ngIf="myForm.controls.passwords.errors?.mismatch && myForm.controls.passwords.controls.cpassword.touched" role="alert">
                 Les deux mot de passe ne sont pas identiques
