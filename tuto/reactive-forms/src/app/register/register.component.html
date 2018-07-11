@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="myForm">
+    {{ myForm.value | json }}
+    <div class="form-group">
+      <label><strong>Username</strong></label>
+      <input type="text" formControlName="username" placeholder="cosinus" class="form-control">
+    </div>
+    <div class="form-group">
+      <label><strong>Email</strong></label>
+      <input type="email" placeholder="cos@email.com" formControlName="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label><strong>Sexe</strong></label>
+      <select class="form-control" formControlName="gender">
+        <option value="default">Choisissez un genre</option>
+        <option value="male">Homme</option>
+        <option value="female">Femme</option>
+      </select>
+    </div>
+    <div class="form-group" formGroupName="passwords" >
+      <label><strong>Mot de passe</strong></label>
+      <input type="password" placeholder="******"  formControlName="password"class="form-control">
+      <label><strong>Confirmer le Mot de passe</strong></label>
+      <input type="password" placeholder="******" formControlName="cpassword" class="form-control">
+    </div>
+
+    <button class="btn btn-primary">Valider</button>
+  </form>
+</div>
