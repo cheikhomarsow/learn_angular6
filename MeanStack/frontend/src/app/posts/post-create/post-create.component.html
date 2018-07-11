@@ -1,0 +1,19 @@
+<form [formGroup]="myForm">
+
+  <mat-card>
+    <mat-form-field>
+      <textarea matInput formControlName="body" placeholder="Textarea"></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)=" onAddPost() "
+    >
+    Add Post
+    </button>
+
+  </mat-card>
+
+</form>
+
