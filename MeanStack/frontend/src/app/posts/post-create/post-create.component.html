@@ -1,19 +1,21 @@
-<form [formGroup]="myForm">
+<mat-card>
+  <form [formGroup]="myForm"  (submit)=" onAddPost() ">
+      <mat-form-field>
+        <input matInput formControlName="title" placeholder="Post Title" type="text">
+        <mat-error *ngIf="myForm.controls.title.invalid">Please enter the post title</mat-error>
+      </mat-form-field>
 
-  <mat-card>
-    <mat-form-field>
-      <textarea matInput formControlName="body" placeholder="Textarea"></textarea>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea rows="4" placeholder="Post Content" matInput formControlName="body"></textarea>
+        <mat-error *ngIf="myForm.controls.body.invalid">Please enter the post content</mat-error>
 
-    <button
-      mat-raised-button
-      color="accent"
-      (click)=" onAddPost() "
-    >
-    Add Post
-    </button>
+      </mat-form-field>
 
-  </mat-card>
+      <button
+        mat-raised-button
+        color="accent"
+       >Add Post</button>
+  </form>
+</mat-card>
 
-</form>
 
