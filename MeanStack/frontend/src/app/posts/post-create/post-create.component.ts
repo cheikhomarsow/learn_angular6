@@ -23,7 +23,7 @@ export class PostCreateComponent implements OnInit {
 
   onAddPost() {
     console.log(this.myForm);
-    if (!this.myForm.invalid) {
+    if (this.myForm.invalid) {
       return;
     }
 
