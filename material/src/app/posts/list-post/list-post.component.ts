@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../models/post.models';
+import { PostService } from '../post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-post',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPostComponent implements OnInit {
 
-  constructor() { }
+  posts: Post[];
+
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
+    this.postService
+      .getPosts()
+      .subscribe((data: Post[]) => {
+        this.posts = data;
+      });
+  }
+
+  editPost(id) {
+    console.log(id);
+    this.router.navigate([`edit/${id}`]);
+  }
+
+  deletePost(id) {
+    this.postService.deletePost(id).subscribe(() => {
+      this.fetchPosts();
+    });
   }
 
 }

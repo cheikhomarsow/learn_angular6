@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Available Posts</mat-card-title>
+  <mat-card-content>
+    <mat-accordion multi="true" *ngFor="let post of posts" >
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>{{ post.title }}</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{ post.body }}</p>
+        <mat-action-row>
+          <a mat-button routerLink=""><i class="material-icons">delete_outline</i></a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>
+
