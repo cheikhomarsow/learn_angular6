@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
-import { Post } from '../models/post.models';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
@@ -38,6 +37,7 @@ export class EditPostComponent implements OnInit {
       this.snackBar.open('Post updated successfully' , 'OK', {
         duration: 3000
       });
+      this.router.navigate(['posts']);
     });
   }
 

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><strong>My Lovely App</strong></span>
+    <span class="example-spacer"></span>
+    <i class="material-icons"  [matMenuTriggerFor]="menu">
+      menu
+    </i>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="login">
+        <span routerLink="login">Sign In</span>
+      </button>
+      <button mat-menu-item routerLink="register">
+        <span >Sign Up</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

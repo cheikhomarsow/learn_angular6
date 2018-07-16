@@ -27,7 +27,6 @@ export class ListPostComponent implements OnInit {
   }
 
   editPost(id) {
-    console.log(id);
     this.router.navigate([`edit/${id}`]);
   }
 

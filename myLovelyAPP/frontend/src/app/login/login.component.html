@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>Sign In</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="myForm" (submit)="addUser()">
+        <div class="example-container">
+
+          <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+            <mat-error *ngIf="myForm.controls.email.invalid">THE EMAIL FIELD IS REQUIRED</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="password" formControlName="password" placeholder="password">
+            <mat-error *ngIf="myForm.controls.password.invalid">THE PASSWORD FIELD IS REQUIRED</mat-error>
+          </mat-form-field>
+
+        </div>
+        <button mat-raised-button color="primary">Sign In</button>
+      </form>
+    </mat-card-content>
+</mat-card>
+
+
